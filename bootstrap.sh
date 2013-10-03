@@ -16,3 +16,18 @@ else
 	fi
 fi
 unset doIt
+
+read -p "Add user details to gitconfig? (y/n)" -n 1
+echo
+echo -n "Enter your name: "
+read name
+
+echo -n "Enter your email: "
+read email
+echo
+
+echo "[user]" > ~/.temp
+echo "    name = $name" >> ~/.temp
+echo "    email = $email" >> ~/.temp
+cat ~/.gitconfig >> ~/.temp
+mv ~/.temp ~/.gitconfig
